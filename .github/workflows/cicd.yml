@@ -29,7 +29,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           # Maven 의존성 캐시 키워드
-          cache: Maven
+          cache: maven
           
       - name: Maven 빌드
         run: mvn -B package -DskipTests
