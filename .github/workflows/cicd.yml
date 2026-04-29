@@ -1,4 +1,4 @@
-# .github/workflows/cicd.yml — 단계 2: Docker Hub + 컨테이너 실행
+# Docker Hub + 컨테이너 실행
 
 name: CI/CD - cicd-basic-lab to mylab-bastion (Docker)
 
@@ -69,7 +69,8 @@ jobs:
             ${{ vars.DOCKERHUB_USERNAME }}/cicd-basic-lab:latest
           # GitHub Actions 캐시를 Docker 레이어 캐시로 활용
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: type=gha,mode=max     # mode=max : 중간 빌드 단계의 레이어까지 모두 저장 
+          # mode=min : 최종 레이어만 저장
 
   cd:
     needs: ci
