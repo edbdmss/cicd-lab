@@ -72,6 +72,7 @@ jobs:
       #    현재:  {계정ID}.dkr.ecr.../mylab-backend:{run_number}-{sha7}
       - name: Build, tag and push image to ECR
         id: build-push
+        working-directory: cicd-basic-lab
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
@@ -93,3 +94,4 @@ jobs:
           echo "image-uri=${IMAGE_URI}" >> $GITHUB_OUTPUT
           echo "image-tag=${TAG}"       >> $GITHUB_OUTPUT
 
+          
